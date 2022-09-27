@@ -2,8 +2,9 @@
   "name": "productsapi",
   "version": "1.0.0",
   "description": "product restful Apis",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "set DEBUG=app, app:* & node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,7 +18,7 @@
   },
   "homepage": "https://github.com/YoussefNour/productsApi#readme",
   "dependencies": {
-    "chalk": "^5.0.1",
+    "chalk": "^4.1.2",
     "debug": "^4.3.4",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
