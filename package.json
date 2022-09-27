@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "set DEBUG=app, app:* & node app.js",
+    "debug": "set DEBUG=app, app:* & nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

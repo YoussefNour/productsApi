@@ -8,7 +8,16 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-const db = mongoose.connect("mongodb://localhost:27017/storeDb");
+mongoose.connect(
+  `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBNAME}.nhrxx.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`,
+  { useNewUrlParser: true }
+);
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error "));
+db.once("open", function () {
+  debug(chalk.green("Connected to Db successfully"));
+});
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
