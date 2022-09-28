@@ -28,20 +28,20 @@ function productService(Product) {
     }
   };
   const getByIdMiddleware = async (req, res, next) => {
-    await Product.findById(req.params.productID, (err, product) => {
-      if (err) {
-        debug(error);
-        return response.status(500).send({
-          success: false,
-          resutls: [],
-          messages: ["failed to fetch products"],
-        });
-      }
+    try {
+      let product = await Product.findById(req.params.productID);
       if (product) {
         req.product = product;
         return next();
       }
-    });
+    } catch (error) {
+      debug(error);
+      return response.status(500).send({
+        success: false,
+        resutls: [],
+        messages: ["failed to fetch products"],
+      });
+    }
   };
   const createProduct = async (req, res) => {
     try {
