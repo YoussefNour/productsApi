@@ -5,7 +5,7 @@ const debug = require("debug")("app");
 const chalk = require("chalk");
 require("dotenv").config();
 
-const bookRoutes = require("./app/product/product.route");
+const bookRoutes = require("./src/product/product.route");
 
 const app = express();
 const port = process.env.PORT || 3000;
