@@ -20,7 +20,7 @@ function productService(Product) {
       });
     } catch (error) {
       debug(error);
-      response.status(500).send({
+      res.status(500).send({
         success: false,
         resutls: [],
         messages: ["failed to fetch products"],
@@ -36,14 +36,16 @@ function productService(Product) {
       }
     } catch (error) {
       debug(error);
-      return response.status(500).send({
+      return res.status(500).send({
         success: false,
         resutls: [],
         messages: ["failed to fetch products"],
       });
     }
   };
-  const createProduct = async (req, res) => {
+
+  // create single
+  const create = async (req, res) => {
     try {
       const product = new Product(req.body);
       let errMsgs = validateProduct(product);
@@ -64,14 +66,16 @@ function productService(Product) {
       });
     } catch (error) {
       debug(error);
-      response.status(500).send({
+      res.status(500).send({
         success: false,
         resutls: [],
         messages: ["failed to create product"],
       });
     }
   };
-  const createProducts = async (req, res) => {
+
+  // create bulk
+  const createBulk = async (req, res) => {
     try {
       let products = req.body;
       for (let i = 0; i < products.length; i++) {
@@ -98,14 +102,37 @@ function productService(Product) {
       });
     } catch (error) {
       debug(error);
-      response.status(500).send({
+      res.status(500).send({
         success: false,
         resutls: [],
         messages: ["failed to create product"],
       });
     }
   };
-  return { getAll, getByIdMiddleware, createProduct, createProducts };
+
+  const update = async (req, res) => {
+    try {
+      const { product } = req;
+      product.Name = req.body.Name;
+      product.Quantity = req.body.Quantity;
+      product.Price = req.body.Price;
+      product.CateogryID = req.body.CateogryID;
+      product.ImgURL = req.body.ImgURL;
+      await product.save();
+      return res.status(200).send({
+        success: true,
+        resutls: [product],
+        messages: ["successfuly updated products"],
+      });
+    } catch (error) {
+      return res.status(500).send({
+        success: false,
+        resutls: [],
+        messages: ["failed to update product"],
+      });
+    }
+  };
+  return { getAll, getByIdMiddleware, create, createBulk, update };
 }
 
 module.exports = productService;
