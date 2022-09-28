@@ -118,6 +118,15 @@ function productService(Product) {
       product.Price = req.body.Price;
       product.CateogryID = req.body.CateogryID;
       product.ImgURL = req.body.ImgURL;
+      let errMsgs = validateProduct(product);
+      if (errMsgs.length > 0) {
+        res.status(400);
+        return res.send({
+          success: false,
+          resutls: [],
+          messages: `validation error(s): ${errMsgs.join("")}`,
+        });
+      }
       await product.save();
       return res.status(200).send({
         success: true,
