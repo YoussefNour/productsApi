@@ -27,27 +27,21 @@ function productService(Product) {
       });
     }
   };
-  const getById = async (req, res) => {
-    try {
-      Book.findById(req.params.bookId, (err, book) => {
-        if (err) {
-          console.log(err);
-          return res.send(err);
-        }
-        if (book) {
-          req.book = book;
-          return next();
-        }
-        return res.sendStatus(404);
-      });
-    } catch (error) {
-      debug(error);
-      response.status(500).send({
-        success: false,
-        resutls: [],
-        messages: ["failed to fetch products"],
-      });
-    }
+  const getByIdMiddleware = async (req, res, next) => {
+    await Product.findById(req.params.productID, (err, product) => {
+      if (err) {
+        debug(error);
+        return response.status(500).send({
+          success: false,
+          resutls: [],
+          messages: ["failed to fetch products"],
+        });
+      }
+      if (product) {
+        req.product = product;
+        return next();
+      }
+    });
   };
   const createProduct = async (req, res) => {
     try {
@@ -111,7 +105,7 @@ function productService(Product) {
       });
     }
   };
-  return { getAll, getById, createProduct, createProducts };
+  return { getAll, getByIdMiddleware, createProduct, createProducts };
 }
 
 module.exports = productService;
