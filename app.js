@@ -13,7 +13,11 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 mongoose.connect(
-  `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBNAME}.nhrxx.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`,
+  `mongodb+srv://${process.env.DBUSER || System.getenv("DBUSER")}:${
+    process.env.DBPASS || System.getenv("DBPASS")
+  }@${process.env.DBNAME || System.getenv("DBNAME")}.nhrxx.mongodb.net/${
+    process.env.DBNAME || System.getenv("DBNAME")
+  }?retryWrites=true&w=majority`,
   { useNewUrlParser: true }
 );
 
