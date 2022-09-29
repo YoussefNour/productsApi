@@ -12,7 +12,11 @@ const validateProduct = (product) => {
 function productService(Product) {
   const getAll = async (req, res) => {
     try {
-      const products = await Product.find({});
+      const query = {};
+      if (req.query.category) {
+        query.CateogryID = req.query.category;
+      }
+      const products = await Product.find(query);
       res.status(200).json({
         success: true,
         resutls: products,
@@ -33,13 +37,19 @@ function productService(Product) {
       if (product) {
         req.product = product;
         return next();
+      } else {
+        return res.status(404).send({
+          success: false,
+          resutls: [],
+          messages: ["productid not found"],
+        });
       }
     } catch (error) {
       debug(error);
       return res.status(500).send({
         success: false,
         resutls: [],
-        messages: ["failed to fetch products"],
+        messages: ["failed to fetch product"],
       });
     }
   };
@@ -124,7 +134,7 @@ function productService(Product) {
         return res.send({
           success: false,
           resutls: [],
-          messages: `validation error(s): ${errMsgs.join("")}`,
+          messages: ["validation errors: ", ...errMsgs],
         });
       }
       await product.save();

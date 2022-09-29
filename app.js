@@ -5,7 +5,8 @@ const debug = require("debug")("app");
 const chalk = require("chalk");
 require("dotenv").config();
 
-const bookRoutes = require("./src/product/product.route");
+const productRoutes = require("./src/product/product.route");
+const categoryRoutes = require("./src/category/category.route");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -32,7 +33,8 @@ app.use(
   })
 );
 
-app.use("/api", bookRoutes);
+app.use("/api", productRoutes);
+app.use("/api", categoryRoutes);
 
 app.listen(port, () => {
   debug(`Server running on port ${chalk.green(port)}`);
