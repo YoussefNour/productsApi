@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "66155d76-d9d1-4452-baaf-0d2943209a91",
+		"name": "ProductsApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "update product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"6334563f0cddbfc49cdb39d0\",\r\n    \"Name\": \"prod:247\",\r\n    \"Price\": 8332,\r\n    \"Quantity\": 369,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 4,\r\n    \"__v\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/product/6334563f0cddbfc49cdb39d0",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"product",
+								"6334563f0cddbfc49cdb39d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/product/6334563f0cddbfc49cdb39d4",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"product",
+								"6334563f0cddbfc49cdb39d4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fill table",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"Name\": \"prod:678\",\r\n    \"Price\": 2491,\r\n    \"Quantity\": 30,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 3\r\n  },\r\n  {\r\n    \"Name\": \"prod:460\",\r\n    \"Price\": 2329,\r\n    \"Quantity\": 509,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 2\r\n  },\r\n  {\r\n    \"Name\": \"prod:638\",\r\n    \"Price\": 9390,\r\n    \"Quantity\": 872,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 2\r\n  },\r\n  {\r\n    \"Name\": \"prod:611\",\r\n    \"Price\": 3057,\r\n    \"Quantity\": 238,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 3\r\n  },\r\n  {\r\n    \"Name\": \"prod:114\",\r\n    \"Price\": 4850,\r\n    \"Quantity\": 711,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 4\r\n  },\r\n  {\r\n    \"Name\": \"prod:833\",\r\n    \"Price\": 1740,\r\n    \"Quantity\": 33,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 3\r\n  },\r\n  {\r\n    \"Name\": \"prod:522\",\r\n    \"Price\": 3815,\r\n    \"Quantity\": 472,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 3\r\n  },\r\n  {\r\n    \"Name\": \"prod:161\",\r\n    \"Price\": 2161,\r\n    \"Quantity\": 144,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 1\r\n  },\r\n  {\r\n    \"Name\": \"prod:262\",\r\n    \"Price\": 2081,\r\n    \"Quantity\": 262,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 2\r\n  },\r\n  {\r\n    \"Name\": \"prod:131\",\r\n    \"Price\": 734,\r\n    \"Quantity\": 260,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 4\r\n  },\r\n  {\r\n    \"Name\": \"prod:110\",\r\n    \"Price\": 8491,\r\n    \"Quantity\": 112,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 4\r\n  },\r\n  {\r\n    \"Name\": \"prod:195\",\r\n    \"Price\": 4258,\r\n    \"Quantity\": 199,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 1\r\n  },\r\n  {\r\n    \"Name\": \"prod:558\",\r\n    \"Price\": 1941,\r\n    \"Quantity\": 73,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 2\r\n  },\r\n  {\r\n    \"Name\": \"prod:527\",\r\n    \"Price\": 541,\r\n    \"Quantity\": 369,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 4\r\n  },\r\n  {\r\n    \"Name\": \"prod:107\",\r\n    \"Price\": 2264,\r\n    \"Quantity\": 842,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 2\r\n  },\r\n  {\r\n    \"Name\": \"prod:294\",\r\n    \"Price\": 3264,\r\n    \"Quantity\": 794,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\",\r\n    \"CateogryID\": 1\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create prod",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Killer prod\",\r\n    \"Price\": 200,\r\n    \"Quantity\": 10,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/product",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/product/6334563f0cddbfc49cdb39d4",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"product",
+								"6334563f0cddbfc49cdb39d4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Killer prod\",\r\n    \"Price\": 200,\r\n    \"Quantity\": 10,\r\n    \"ImgURL\": \"https://picsum.photos/200/300\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/product",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all by category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/products?category=0",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
