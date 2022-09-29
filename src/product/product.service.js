@@ -144,6 +144,7 @@ function productService(Product) {
         messages: ["successfuly updated products"],
       });
     } catch (error) {
+      debug(error);
       return res.status(500).send({
         success: false,
         resutls: [],
@@ -151,7 +152,24 @@ function productService(Product) {
       });
     }
   };
-  return { getAll, getByIdMiddleware, create, createBulk, update };
+  const deleteItem = async (req, res) => {
+    try {
+      await req.product.remove();
+      return res.status(204).send({
+        success: true,
+        resutls: [],
+        messages: ["successfuly deleted product"],
+      });
+    } catch (error) {
+      debug(error);
+      return res.status(500).send({
+        success: false,
+        resutls: [],
+        messages: ["failed to delete product"],
+      });
+    }
+  };
+  return { getAll, getByIdMiddleware, create, createBulk, update, deleteItem };
 }
 
 module.exports = productService;

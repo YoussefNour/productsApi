@@ -13,7 +13,8 @@ routes
       messages: ["successfuly fetched book"],
     });
   })
-  .put(productService.update);
+  .put(productService.update)
+  .delete(productService.deleteItem);
 routes.route("/product").post(productService.create);
 routes.route("/products").get(productService.getAll);
 routes.route("/products").post(productService.createBulk);
