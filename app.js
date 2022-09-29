@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const debug = require("debug")("app");
 const chalk = require("chalk");
+const cors = require("cors");
 require("dotenv").config();
 
 const productRoutes = require("./src/product/product.route");
@@ -32,6 +33,8 @@ app.use(
     },
   })
 );
+
+app.use(cors());
 
 app.use("/api", productRoutes);
 app.use("/api", categoryRoutes);
